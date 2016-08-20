@@ -1,0 +1,64 @@
+---
+#A sample bosh deployment manifest
+name: sample-deployment
+
+director_uuid:
+
+releases:
+- name: sample-bosh-release
+  version: latest
+
+compilation:
+  cloud_properties:
+    availability_zone: us-east-1a
+    instance_type: t2.micro
+  network: sample
+  reuse_compilation_vms: true
+  workers: 2
+
+jobs:
+- instances: 1
+  name: helloworld
+  networks:
+  - name: sample
+    static_ips:
+    - 10.0.0.15
+  resource_pool: helloworld
+  templates:
+  - name: helloworld
+    release: sample-bosh-release
+
+networks:
+- name: sample
+  subnets:
+  - cloud_properties:
+      security_groups:
+      subnet:
+    dns: [10.0.0.2]
+    gateway: 10.0.0.1
+    range: 10.0.0.0/24
+    reserved:
+    - 10.0.0.1 - 10.0.0.10
+    - 10.0.0.20 - 10.0.0.254
+    static:
+    - 10.0.0.15
+
+resource_pools:
+- cloud_properties:
+    availability_zone: us-east-1a
+    instance_type: t2.micro
+  name: helloworld
+  network: helloworld
+  stemcell:
+    name: bosh-aws-xen-hvm-ubuntu-trusty-go_agent
+    sha1: 13c73b82675742012ba3ded6528524b8f3ce9ec3
+    url: https://bosh.io/d/stemcells/bosh-aws-xen-hvm-ubuntu-trusty-go_agent?v=3262.5
+    version: 3262.5
+
+update:
+  canaries: 1
+  canary_watch_time: 3000-120000
+  max_in_flight: 50
+  serial: false
+  update_watch_time: 3000-120000
+

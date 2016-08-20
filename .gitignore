@@ -1,0 +1,8 @@
+blobs/
+dev_releases/
+.blobs/
+.final_builds/
+.dev_builds/
+config/private.yml
+config/dev.yml
+manifest.yml

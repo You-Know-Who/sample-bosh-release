@@ -1,0 +1,8 @@
+---
+name: helloworld
+
+dependencies:
+- ruby
+
+files:
+- helloworld/**/*

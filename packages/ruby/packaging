@@ -1,0 +1,19 @@
+# abort script on any command that exits with a non zero value
+set -ex
+tar xvf ruby/ruby-2.3.1.tar.gz
+pushd ruby-2.3.1
+  ./configure \
+    --prefix=${BOSH_INSTALL_TARGET} \
+    --disable-install-doc \
+    --with-opt-dir=/var/vcap/packages/libyaml_0.1.6
+
+  make
+  make install
+popd
+
+tar zxvf ruby/rubygems-2.6.6.tgz
+pushd rubygems-2.6.6
+  ${BOSH_INSTALL_TARGET}/bin/ruby setup.rb
+popd
+
+${BOSH_INSTALL_TARGET}/bin/gem install ruby/bundler-1.12.5.gem --no-ri --no-rdoc

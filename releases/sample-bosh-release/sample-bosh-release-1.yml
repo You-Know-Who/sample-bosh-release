@@ -1,0 +1,28 @@
+---
+packages:
+- name: libyaml
+  version: 3422133e74dab4c70e1353b9f87a9c29dc891fb9
+  fingerprint: 3422133e74dab4c70e1353b9f87a9c29dc891fb9
+  sha1: 068d76788c6a91e4d719b9ac28ef488927c8a9c6
+  dependencies: []
+- name: ruby
+  version: 0ebe40d61f60e0636bc0527a58f8682d387d03b1
+  fingerprint: 0ebe40d61f60e0636bc0527a58f8682d387d03b1
+  sha1: a5bf2721969aa5b365906b6966f7f7907ba31417
+  dependencies:
+  - libyaml
+- name: helloworld
+  version: add7abba77e4e3b60b873585ec7cfb7c0a46d805
+  fingerprint: add7abba77e4e3b60b873585ec7cfb7c0a46d805
+  sha1: 859d57676e410136dd7a614f950eb1a93f4006a1
+  dependencies:
+  - ruby
+jobs:
+- name: helloworld
+  version: 792e942e5456349ddaf08c8e03a04c67073b4d6b
+  fingerprint: 792e942e5456349ddaf08c8e03a04c67073b4d6b
+  sha1: 240c35b04522ffc35feb8eb8a13086045a5169c6
+commit_hash: '00000000'
+uncommitted_changes: true
+name: sample-bosh-release
+version: '1'

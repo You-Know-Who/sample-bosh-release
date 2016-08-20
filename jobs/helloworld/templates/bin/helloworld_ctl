@@ -1,0 +1,40 @@
+#!/bin/bash
+
+RUN_DIR=/var/vcap/sys/run/helloworld
+LOG_DIR=/var/vcap/sys/log/helloworld
+TMP_DIR=/var/vcap/sys/tmp/helloworld
+STORE_DIR=/var/vcap/store/helloworld
+
+mkdir -p $RUN_DIR $LOG_DIR $TMP_DIR $STORE_DIR
+
+PIDFILE=${RUN_DIR}/pid
+
+case $1 in
+
+  start)
+    chown -R vcap:vcap $RUN_DIR $LOG_DIR $TMP_DIR $STORE_DIR
+
+    echo $$ > $PIDFILE
+
+    cd /var/vcap/packages/helloworld
+
+    export PATH=/var/vcap/packages/ruby/bin:$PATH
+
+    exec /var/vcap/packages/ruby/bin/bundle exec \
+      rackup -p <%= properties.web_ui.port %> \
+      >>  $LOG_DIR/helloworld.stdout.log \
+      2>> $LOG_DIR/helloworld.stderr.log
+
+    ;;
+
+  stop)
+    kill -9 `cat $PIDFILE`
+    rm -f $PIDFILE
+
+    ;;
+
+  *)
+    echo "Usage: ctl {start|stop}" ;;
+
+esac
+

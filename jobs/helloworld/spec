@@ -1,0 +1,10 @@
+---
+name: helloworld
+packages:
+- helloworld
+- ruby
+templates:
+  bin/helloworld_ctl: bin/helloworld_ctl
+properties:
+  web_ui.port:
+    default: 80

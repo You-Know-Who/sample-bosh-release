@@ -1,0 +1,10 @@
+---
+name: ruby
+
+dependencies:
+- libyaml
+
+files:
+- ruby/bundler-1.12.5.gem
+- ruby/ruby-2.3.1.tar.gz
+- ruby/rubygems-2.6.6.tgz

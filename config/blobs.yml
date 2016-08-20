@@ -1,0 +1,17 @@
+---
+libyaml/yaml-0.1.6.tar.gz:
+  object_id: aae11cc1-2ac9-4f14-b546-8a45abfd14bf
+  sha: f3d404e11bec3c4efcddfd14c42d46f1aabe0b5d
+  size: 503012
+ruby/bundler-1.12.5.gem:
+  object_id: 46dbefb7-1bae-40ca-afb8-2a6928aecaed
+  sha: a414b2aafa54affac99dc453ced5adc152211eb9
+  size: 280064
+ruby/ruby-2.3.1.tar.gz:
+  object_id: 2f6af89e-af9a-4c3d-9d86-eba2b309a68e
+  sha: c39b4001f7acb4e334cb60a0f4df72d434bef711
+  size: 17797997
+ruby/rubygems-2.6.6.tgz:
+  object_id: bb8a1544-e2a3-42bd-8407-f7315301df21
+  sha: 2b9b8038fc92a6c5ab6dda3fda95f1f6bc42fd02
+  size: 730034
